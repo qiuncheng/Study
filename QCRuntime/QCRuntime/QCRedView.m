@@ -15,12 +15,19 @@
 
 @implementation QCRedView
 
++ (void)initialize {
+
+}
+
++(void)load {
+
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor redColor];
         [self setUserInteractionEnabled:YES];
-
         Class class = [self class];
         [self exchangeImplementationsWithClass:class selectorOne:@selector(touchesBegan:withEvent:) selectorTwo:@selector(qc_touchesBegan:withEvent:)];
         [self exchangeImplementationsWithClass:class selectorOne:@selector(touchesMoved:withEvent:) selectorTwo:@selector(qc_touchesMoved:withEvent:)];
@@ -32,6 +39,7 @@
 
 - (void)qc_touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     NSLog(@" -- %s --", __func__);
+    [self qc_touchesBegan:touches withEvent:event];
 }
 - (void)qc_touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     NSLog(@"-- %s --", __func__);
