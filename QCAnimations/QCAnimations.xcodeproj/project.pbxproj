@@ -15,6 +15,7 @@
 		8670F2F31DB51F1F000CDD11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8670F2F11DB51F1F000CDD11 /* LaunchScreen.storyboard */; };
 		8670F2FE1DB51F1F000CDD11 /* QCAnimationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8670F2FD1DB51F1F000CDD11 /* QCAnimationsTests.m */; };
 		8670F3091DB51F1F000CDD11 /* QCAnimationsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8670F3081DB51F1F000CDD11 /* QCAnimationsUITests.m */; };
+		8670F3181DB53682000CDD11 /* QCSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8670F3171DB53682000CDD11 /* QCSecondViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		8670F3041DB51F1F000CDD11 /* QCAnimationsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QCAnimationsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8670F3081DB51F1F000CDD11 /* QCAnimationsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCAnimationsUITests.m; sourceTree = "<group>"; };
 		8670F30A1DB51F1F000CDD11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8670F3161DB53682000CDD11 /* QCSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCSecondViewController.h; sourceTree = "<group>"; };
+		8670F3171DB53682000CDD11 /* QCSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCSecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				8670F2E71DB51F1F000CDD11 /* AppDelegate.m */,
 				8670F2E91DB51F1F000CDD11 /* ViewController.h */,
 				8670F2EA1DB51F1F000CDD11 /* ViewController.m */,
+				8670F3161DB53682000CDD11 /* QCSecondViewController.h */,
+				8670F3171DB53682000CDD11 /* QCSecondViewController.m */,
 				8670F2EC1DB51F1F000CDD11 /* Main.storyboard */,
 				8670F2EF1DB51F1F000CDD11 /* Assets.xcassets */,
 				8670F2F11DB51F1F000CDD11 /* LaunchScreen.storyboard */,
@@ -278,6 +283,7 @@
 			files = (
 				8670F2EB1DB51F1F000CDD11 /* ViewController.m in Sources */,
 				8670F2E81DB51F1F000CDD11 /* AppDelegate.m in Sources */,
+				8670F3181DB53682000CDD11 /* QCSecondViewController.m in Sources */,
 				8670F2E51DB51F1F000CDD11 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
