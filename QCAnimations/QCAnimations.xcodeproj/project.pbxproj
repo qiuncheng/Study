@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8606B3D81DBA52E900DE6D3E /* QCThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8606B3D71DBA52E900DE6D3E /* QCThreeViewController.m */; };
+		8606B3DC1DBA530A00DE6D3E /* QCThreeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8606B3DB1DBA530A00DE6D3E /* QCThreeLayer.m */; };
+		8606B3DF1DBA531500DE6D3E /* QCThreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8606B3DE1DBA531500DE6D3E /* QCThreeView.m */; };
 		8670F2E51DB51F1F000CDD11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8670F2E41DB51F1F000CDD11 /* main.m */; };
 		8670F2E81DB51F1F000CDD11 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8670F2E71DB51F1F000CDD11 /* AppDelegate.m */; };
 		8670F2EB1DB51F1F000CDD11 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8670F2EA1DB51F1F000CDD11 /* ViewController.m */; };
@@ -36,6 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8606B3D61DBA52E900DE6D3E /* QCThreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCThreeViewController.h; sourceTree = "<group>"; };
+		8606B3D71DBA52E900DE6D3E /* QCThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCThreeViewController.m; sourceTree = "<group>"; };
+		8606B3DA1DBA530A00DE6D3E /* QCThreeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCThreeLayer.h; sourceTree = "<group>"; };
+		8606B3DB1DBA530A00DE6D3E /* QCThreeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCThreeLayer.m; sourceTree = "<group>"; };
+		8606B3DD1DBA531500DE6D3E /* QCThreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCThreeView.h; sourceTree = "<group>"; };
+		8606B3DE1DBA531500DE6D3E /* QCThreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCThreeView.m; sourceTree = "<group>"; };
 		8670F2E01DB51F1F000CDD11 /* QCAnimations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QCAnimations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8670F2E41DB51F1F000CDD11 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8670F2E61DB51F1F000CDD11 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,6 +90,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8606B3D91DBA52EE00DE6D3E /* Three */ = {
+			isa = PBXGroup;
+			children = (
+				8606B3D71DBA52E900DE6D3E /* QCThreeViewController.m */,
+				8606B3D61DBA52E900DE6D3E /* QCThreeViewController.h */,
+				8606B3DA1DBA530A00DE6D3E /* QCThreeLayer.h */,
+				8606B3DB1DBA530A00DE6D3E /* QCThreeLayer.m */,
+				8606B3DD1DBA531500DE6D3E /* QCThreeView.h */,
+				8606B3DE1DBA531500DE6D3E /* QCThreeView.m */,
+			);
+			name = Three;
+			sourceTree = "<group>";
+		};
 		8670F2D71DB51F1F000CDD11 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +132,7 @@
 				8670F2EA1DB51F1F000CDD11 /* ViewController.m */,
 				8670F3161DB53682000CDD11 /* QCSecondViewController.h */,
 				8670F3171DB53682000CDD11 /* QCSecondViewController.m */,
+				8606B3D91DBA52EE00DE6D3E /* Three */,
 				8670F2EC1DB51F1F000CDD11 /* Main.storyboard */,
 				8670F2EF1DB51F1F000CDD11 /* Assets.xcassets */,
 				8670F2F11DB51F1F000CDD11 /* LaunchScreen.storyboard */,
@@ -281,8 +304,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8606B3DC1DBA530A00DE6D3E /* QCThreeLayer.m in Sources */,
 				8670F2EB1DB51F1F000CDD11 /* ViewController.m in Sources */,
 				8670F2E81DB51F1F000CDD11 /* AppDelegate.m in Sources */,
+				8606B3D81DBA52E900DE6D3E /* QCThreeViewController.m in Sources */,
+				8606B3DF1DBA531500DE6D3E /* QCThreeView.m in Sources */,
 				8670F3181DB53682000CDD11 /* QCSecondViewController.m in Sources */,
 				8670F2E51DB51F1F000CDD11 /* main.m in Sources */,
 			);
@@ -520,6 +546,7 @@
 				8670F30F1DB51F1F000CDD11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8670F3101DB51F1F000CDD11 /* Build configuration list for PBXNativeTarget "QCAnimationsTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +555,7 @@
 				8670F3121DB51F1F000CDD11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8670F3131DB51F1F000CDD11 /* Build configuration list for PBXNativeTarget "QCAnimationsUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +564,7 @@
 				8670F3151DB51F1F000CDD11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
