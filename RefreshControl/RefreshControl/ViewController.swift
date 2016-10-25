@@ -10,30 +10,37 @@ import UIKit
 
 class ViewController: UITableViewController {
     let colors = [UIColor.red, UIColor.blue, UIColor.orange, UIColor.cyan, UIColor.magenta,UIColor.brown]
-    weak var refresh: JKRefreshControl!
+    var offsetY: CGFloat = 0.0 {
+        didSet {
+            if offsetY < -60 {
+                label.text = "不好"
+            } else {
+                label.text = "你好"
+            }
+        }
+    }
+
+    var label: UILabel! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let refresh = JKRefreshControl()
-        tableView.addSubview(refresh)
-        self.refresh = refresh
-
-        refresh.addTarget(self, action: #selector(endRefresh), for: .valueChanged)
-    }
-    func endRefresh() {
-        DispatchQueue.global().async { 
-            Thread.sleep(forTimeInterval: 0.8)
-            DispatchQueue.main.async(execute: { 
-                self.refresh.endRefreshing()
-            })
-        }
+        self.addObserver(self, forKeyPath: "tableView.contentOffset", options: .new, context: nil)
+        label = UILabel()
+        label.text = "你好"
+        label.sizeToFit()
+        view.addSubview(label)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "tableView.contentOffset" {
+            offsetY = tableView.contentInset.top + tableView.contentOffset.y
+        }
+    }
     deinit {
-
+        self.removeObserver(self, forKeyPath: "tableView.contentOffset")
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
