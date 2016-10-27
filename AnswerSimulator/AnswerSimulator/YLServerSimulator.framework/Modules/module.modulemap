@@ -1,0 +1,10 @@
+framework module YLServerSimulator {
+  umbrella header "YLServerSimulator.h"
+
+  export *
+  module * { export * }
+}
+
+module YLServerSimulator.Swift {
+    header "YLServerSimulator-Swift.h"
+}
