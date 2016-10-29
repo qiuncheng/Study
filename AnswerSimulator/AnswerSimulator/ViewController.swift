@@ -10,7 +10,7 @@ import UIKit
 import YLServerSimulator
 
 struct ViewControllerCommon {
-    static let cellID = "cellID"
+    fileprivate static let cellID = "msgCellID"
 }
 
 class ViewController: UITableViewController, YLServerClientDelegate {
@@ -30,25 +30,12 @@ class ViewController: UITableViewController, YLServerClientDelegate {
                     self.results.append(m)
                 }
             })
-            /*
-            (self.results as NSArray).sortedArray(comparator: { (value1, value2) -> ComparisonResult in
-                let t1 = (value1 as! NSDictionary)["timestamp"]
-                let t2 = (value2 as! NSDictionary)["timestamp"]
-
-                if String(describing: t1) > String(describing: t2) {
-                    return ComparisonResult.orderedAscending
-                } else {
-                    return ComparisonResult.orderedDescending
-                }
-            })
-            */
 
             self.tableView.reloadData()
         }
 
         client.receiveMessages = messages
-        /*
-         print("++++++++++")
+        /**
          var count: UInt32 = 0
          let methods = class_copyMethodList(YLServerClient.self, &count)
          for i in 0 ..< numericCast(count) {
@@ -59,10 +46,8 @@ class ViewController: UITableViewController, YLServerClientDelegate {
          print("method type : " + String(utf8String: methodType!)!)
          print("SEL : " + NSStringFromSelector(methodName!))
          print("return type :" + String(utf8String: methodReturnType!)!)
-         print("--")
          }
          */
-//        tableView.register(MsgCell.self, forCellReuseIdentifier: ViewControllerCommon.cellID)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -80,33 +65,26 @@ class ViewController: UITableViewController, YLServerClientDelegate {
     }
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let result = results[indexPath.row]
+        let msgCell = cell as! MsgCell
         if let type = result["type"] {
-            (cell as! MsgCell).typeMsgLabel.text = type
+            msgCell.typeMsgLabel.text = type
         }
         if let timestamp = result["timestamp"] {
-            (cell as! MsgCell).timeMsgLabel.text = timestamp
+            msgCell.timeMsgLabel.text = timestamp
         }
         if let content = result["content"] {
-            (cell as! MsgCell).contentMsgLabel.text = content
+            msgCell.contentMsgLabel.text = content
         }
         if let url = result["url"] {
-            (cell as! MsgCell).contentMsgLabel.text = url
+            msgCell.contentMsgLabel.text = url
         }
     }
 
     func serverSleepForever() {
 
-//        for item in results {
-//            if let url = item["url"] {
-//                print("url : " + url)
-//            }
-//            if let content = item["content"] {
-//                print("content : " + content)
-//            }
-//        }
 
         print("~The end~")
-        let alertVC = UIAlertController(title: "数据完成加载", message: "", preferredStyle: .alert)
+        let alertVC = UIAlertController(title: "数据接受完成", message: "", preferredStyle: .alert)
         let sureAction = UIAlertAction(title: "确定", style: .default) { (action) in
 
         }
@@ -115,16 +93,14 @@ class ViewController: UITableViewController, YLServerClientDelegate {
         self.present(alertVC, animated: true, completion: nil)
 
         (self.results as NSArray).sortedArray(comparator: { (value1, value2) -> ComparisonResult in
-            let t1 = (value1 as! NSDictionary)["timestamp"]
-            let t2 = (value2 as! NSDictionary)["timestamp"]
+            let time1 = (value1 as! NSDictionary)["timestamp"]
+            let time2 = (value2 as! NSDictionary)["timestamp"]
 
-            if String(describing: t1) > String(describing: t2) {
+            if String(describing: time1) > String(describing: time2) {
                 return ComparisonResult.orderedAscending
             } else {
                 return ComparisonResult.orderedDescending
             }
-
-
         })
 
         self.tableView.reloadData()
