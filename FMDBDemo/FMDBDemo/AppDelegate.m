@@ -17,9 +17,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self createCopyOfDatabaseIfNeeded];
     return YES;
 }
 
+- (void) createCopyOfDatabaseIfNeeded {
+    BOOL success;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDirectory = [paths objectAtIndex:0];
+    NSString *appDBPath = [documentDirectory stringByAppendingPathComponent:@"Student.sqlite"];
+    success = [fileManager fileExistsAtPath:appDBPath];
+    if (success) {
+        return ;
+    }
+    NSString *defaultPath = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"Student.sqlite"];
+    success = [fileManager copyItemAtPath:defaultPath toPath:appDBPath error:&error];
+    if (!success) {
+        NSAssert(0, @"Failed to create writable database file with message '%@'", error.localizedDescription);
+    }
+
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -14,6 +14,8 @@
 		86BEDEC81DCF855700B03DB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86BEDEC61DCF855700B03DB3 /* Main.storyboard */; };
 		86BEDECA1DCF855700B03DB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86BEDEC91DCF855700B03DB3 /* Assets.xcassets */; };
 		86BEDECD1DCF855700B03DB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86BEDECB1DCF855700B03DB3 /* LaunchScreen.storyboard */; };
+		86BEDED51DCF8ACC00B03DB3 /* Student.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 86BEDED41DCF8ACC00B03DB3 /* Student.sqlite */; };
+		86BEDED81DCF8BD700B03DB3 /* FMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BEDED71DCF8BD700B03DB3 /* FMDBManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,9 @@
 		86BEDEC91DCF855700B03DB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86BEDECC1DCF855700B03DB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86BEDECE1DCF855700B03DB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86BEDED41DCF8ACC00B03DB3 /* Student.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Student.sqlite; sourceTree = "<group>"; };
+		86BEDED61DCF8BD700B03DB3 /* FMDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBManager.h; sourceTree = "<group>"; };
+		86BEDED71DCF8BD700B03DB3 /* FMDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBManager.m; sourceTree = "<group>"; };
 		A22000C6C2D5E6C84C070B93 /* Pods_FMDBDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FMDBDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -77,6 +82,8 @@
 				86BEDEC11DCF855700B03DB3 /* AppDelegate.m */,
 				86BEDEC31DCF855700B03DB3 /* ViewController.h */,
 				86BEDEC41DCF855700B03DB3 /* ViewController.m */,
+				86BEDED61DCF8BD700B03DB3 /* FMDBManager.h */,
+				86BEDED71DCF8BD700B03DB3 /* FMDBManager.m */,
 				86BEDEC61DCF855700B03DB3 /* Main.storyboard */,
 				86BEDEC91DCF855700B03DB3 /* Assets.xcassets */,
 				86BEDECB1DCF855700B03DB3 /* LaunchScreen.storyboard */,
@@ -90,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				86BEDEBE1DCF855700B03DB3 /* main.m */,
+				86BEDED41DCF8ACC00B03DB3 /* Student.sqlite */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -166,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86BEDECD1DCF855700B03DB3 /* LaunchScreen.storyboard in Resources */,
+				86BEDED51DCF8ACC00B03DB3 /* Student.sqlite in Resources */,
 				86BEDECA1DCF855700B03DB3 /* Assets.xcassets in Resources */,
 				86BEDEC81DCF855700B03DB3 /* Main.storyboard in Resources */,
 			);
@@ -226,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86BEDED81DCF8BD700B03DB3 /* FMDBManager.m in Sources */,
 				86BEDEC51DCF855700B03DB3 /* ViewController.m in Sources */,
 				86BEDEC21DCF855700B03DB3 /* AppDelegate.m in Sources */,
 				86BEDEBF1DCF855700B03DB3 /* main.m in Sources */,
@@ -349,6 +359,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 57EP4P69NV;
 				INFOPLIST_FILE = FMDBDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiuncheng.FMDBDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -362,6 +373,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 57EP4P69NV;
 				INFOPLIST_FILE = FMDBDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiuncheng.FMDBDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
