@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27ACBDB9D9A940EF8C6FF827 /* Pods_BlockBasic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6E5DF319C77084769F820D /* Pods_BlockBasic.framework */; };
+		86170D221DC4894500F71D68 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 86170D211DC4894500F71D68 /* Person.m */; };
 		866B31C71DC33D9F00D05CEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 866B31C61DC33D9F00D05CEA /* main.m */; };
 		866B31CA1DC33D9F00D05CEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 866B31C91DC33D9F00D05CEA /* AppDelegate.m */; };
 		866B31CD1DC33D9F00D05CEA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 866B31CC1DC33D9F00D05CEA /* ViewController.m */; };
@@ -18,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		77FACE0F00A2374E41CFBD12 /* Pods-BlockBasic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockBasic.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlockBasic/Pods-BlockBasic.release.xcconfig"; sourceTree = "<group>"; };
+		86170D201DC4894500F71D68 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		86170D211DC4894500F71D68 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		866B31C21DC33D9F00D05CEA /* BlockBasic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockBasic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		866B31C61DC33D9F00D05CEA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		866B31C81DC33D9F00D05CEA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -86,6 +89,8 @@
 				866B31C91DC33D9F00D05CEA /* AppDelegate.m */,
 				866B31CB1DC33D9F00D05CEA /* ViewController.h */,
 				866B31CC1DC33D9F00D05CEA /* ViewController.m */,
+				86170D201DC4894500F71D68 /* Person.h */,
+				86170D211DC4894500F71D68 /* Person.m */,
 				866B31CE1DC33D9F00D05CEA /* Main.storyboard */,
 				866B31D11DC33D9F00D05CEA /* Assets.xcassets */,
 				866B31D31DC33D9F00D05CEA /* LaunchScreen.storyboard */,
@@ -228,6 +233,7 @@
 			files = (
 				866B31CD1DC33D9F00D05CEA /* ViewController.m in Sources */,
 				866B31CA1DC33D9F00D05CEA /* AppDelegate.m in Sources */,
+				86170D221DC4894500F71D68 /* Person.m in Sources */,
 				866B31C71DC33D9F00D05CEA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,8 +356,10 @@
 				DEVELOPMENT_TEAM = 57EP4P69NV;
 				INFOPLIST_FILE = BlockBasic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiuncheng.BlockBasic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "";
 			};
 			name = Debug;
 		};
@@ -365,6 +373,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiuncheng.BlockBasic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "";
 			};
 			name = Release;
 		};

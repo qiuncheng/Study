@@ -8,7 +8,7 @@
 //  以数据流为导向的数据block
 
 #import "ViewController.h"
-
+#import "Person.h"
 @interface ViewController ()
 
 @property (nonatomic, assign) int result;
@@ -23,6 +23,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    Person *p1 = [[Person alloc] init];
+    Person *p2 = [[Person alloc] init];
+    p1.a = 1;
+    p2 = p1;
+    p2.a = 2;
+    NSLog(@"p1.a = %d, p2.a = %d", p1.a, p2.a);
 }
 
 - (instancetype)calculate:(int (^)(int))calculateBack {

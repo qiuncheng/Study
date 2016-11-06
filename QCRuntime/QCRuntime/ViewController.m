@@ -31,6 +31,14 @@
     [self.redView addGestureRecognizer:tapGeture];
     [self.redView addGestureRecognizer:swipGesture];
     [self.view addSubview:self.redView];
+
+    QCRedView *p1 = [[QCRedView alloc] init];
+    QCRedView *p2 = [[QCRedView alloc] init];
+    p1.a = 1;
+    p2 = p1;
+    p2.a = 2;
+    NSLog(@"%d, %d", p1.a, p2.a);
+
 }
 
 - (void) tapGesture:(UITapGestureRecognizer*) geture {

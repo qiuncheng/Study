@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface QCRedView : UIView
+@property (nonatomic, assign) int a;
 
 @end
