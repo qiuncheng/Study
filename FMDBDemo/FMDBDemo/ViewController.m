@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "FMDBManager.h"
+#import <FMDB/FMDB.h>
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameTextFiled;
@@ -25,8 +26,23 @@
     [self.manager createTable];
 }
 - (IBAction)addButtonClicked:(id)sender {
+    NSDate *date = [NSDate date];
+//    float fData = [date timeIntervalSince1970];
     NSLog(@"name: %@, \n, age: %@", self.nameTextFiled.text, self.ageTextFiled.text);
-    [self.manager updateDataWithName:self.nameTextFiled.text age:self.ageTextFiled.text];
+//    [self.manager insertDataWithName:self.nameTextFiled.text age:self.ageTextFiled.tex];
+    [self.manager insertDataWithName:self.nameTextFiled.text age:self.ageTextFiled.text date:[NSString stringWithFormat:@"%f", [date timeIntervalSince1970]]];
+}
+- (IBAction)deletedButtonClicked:(id)sender {
+//    [self.manager deleteDataWithName:self.nameTextFiled.text];
+    [self.manager deleteDataWithName:self.nameTextFiled.text age:self.ageTextFiled.text];
+}
+- (IBAction)updateButtonClicked:(id)sender {
+}
+- (IBAction)queryButtonClicked:(id)sender {
+    [self.manager queryDataWithName:self.nameTextFiled.text];
+//    if ([result next]) {
+//        NSLog(@"%@",[result stringForColumn:@"name"]);
+//    }
 }
 
 

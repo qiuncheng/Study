@@ -16,7 +16,7 @@ static FMDatabase *database = nil;
 - (void) createTable {
     FMDatabase *db = [self currentDatabase];
     [db open];
-    BOOL createTableResult = [db executeUpdate:@"create table if not exists student(id int primary key, name text, age text)"];
+    BOOL createTableResult = [db executeUpdate:@"create table if not exists student(id integer primary key autoincrement, name text, age text, date text)"];
     if (createTableResult) {
         NSLog(@"创建表成功！");
     } else {
@@ -24,11 +24,11 @@ static FMDatabase *database = nil;
     }
     [db close];
 }
-- (void) insertDataWithName:(NSString *)name age:(NSString*)age {
+- (void) insertDataWithName:(NSString *)name age:(NSString*)age date:(NSString *)date {
     FMDatabase *db = [self currentDatabase];
     NSLog(@"%@", [db databasePath]);
     [db open];
-    BOOL insertDataResult = [db executeUpdate:@"INSERT INTO student(name, age)values(?,?)", name, age];
+    BOOL insertDataResult = [db executeUpdate:@"INSERT INTO student(name, age, date) values(?,?, ?)", name, age,date];
     if (insertDataResult) {
         NSLog(@"insert successfully.");
     } else {
@@ -37,7 +37,7 @@ static FMDatabase *database = nil;
     [db close];
 }
 
-- (void) updateDataWithName:(NSString *)name age:(NSString*) age {
+- (void) updateDataWithName:(NSString *)name age:(NSString*) age date:(float)date {
     FMDatabase *db = [self currentDatabase];
     [db open];
     BOOL updateDataResult = [db executeUpdate:@"update student SET name = ? and age = ? where name = 'ggggg'", name, age];
@@ -47,7 +47,34 @@ static FMDatabase *database = nil;
         NSLog(@"update failed.");
     }
     [db close];
-
+}
+- (void) deleteDataWithName:(NSString *)name age:(NSString *)age{
+    FMDatabase *db = [self currentDatabase];
+    [db open];
+    BOOL deleteDataResult = [db executeUpdate:@"DELETE FROM student WHERE name = ? and age = ?", name, age];
+    if (deleteDataResult) {
+        NSLog(@"deleted successfully");
+    }
+    else {
+        NSLog(@"delete failed");
+    }
+    [db close];
+}
+- (void )queryDataWithName:(NSString *)name {
+    FMDatabase *db = [self currentDatabase];
+    [db open];
+    FMResultSet *result = [db executeQuery:@"SELECT * FROM student where name = ?", name];
+    if (result != nil) {
+        NSLog(@"query successfully");
+    }
+    else {
+        NSLog(@"query failed");
+    }
+    while ([result next]) {
+        NSLog(@"%@ --- %@ --- %@", [result stringForColumn:@"name"], [result stringForColumn:@"age"], [result stringForColumn:@"date"]);
+    }
+//    return result;
+    [db close];
 }
 
 #pragma mark -

@@ -44,17 +44,44 @@
                                     <action selector="addButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vUE-gM-toy"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQx-29-Hje">
+                                <rect key="frame" x="159.5" y="177" width="55" height="30"/>
+                                <state key="normal" title="DELETE"/>
+                                <connections>
+                                    <action selector="deletedButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vwV-kv-X6k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5c-yV-CnX">
+                                <rect key="frame" x="161.5" y="223" width="51" height="30"/>
+                                <state key="normal" title="Update"/>
+                                <connections>
+                                    <action selector="updateButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oRk-gK-80k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9DK-Wt-ZIP">
+                                <rect key="frame" x="166" y="271" width="42" height="30"/>
+                                <state key="normal" title="Query"/>
+                                <connections>
+                                    <action selector="queryButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qOk-SA-vdt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ffA-jT-XhU" firstAttribute="centerX" secondItem="94f-uA-wtB" secondAttribute="centerX" id="GDC-aT-vg5"/>
+                            <constraint firstItem="9DK-Wt-ZIP" firstAttribute="top" secondItem="J5c-yV-CnX" secondAttribute="bottom" constant="18" id="PmR-7R-b7a"/>
+                            <constraint firstItem="JQx-29-Hje" firstAttribute="centerX" secondItem="ffA-jT-XhU" secondAttribute="centerX" id="V4x-PA-QsT"/>
+                            <constraint firstItem="9DK-Wt-ZIP" firstAttribute="centerX" secondItem="J5c-yV-CnX" secondAttribute="centerX" id="Xgp-E6-3JI"/>
                             <constraint firstItem="ENI-ba-bYK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="28" id="fGv-1G-aMI"/>
                             <constraint firstItem="94f-uA-wtB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="he3-dr-bjW"/>
                             <constraint firstItem="94f-uA-wtB" firstAttribute="height" secondItem="ENI-ba-bYK" secondAttribute="height" id="iB6-wT-vZT"/>
                             <constraint firstItem="ENI-ba-bYK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iBp-3K-RF8"/>
                             <constraint firstItem="ffA-jT-XhU" firstAttribute="top" secondItem="94f-uA-wtB" secondAttribute="bottom" constant="16" id="imk-FN-D5W"/>
+                            <constraint firstItem="JQx-29-Hje" firstAttribute="top" secondItem="ffA-jT-XhU" secondAttribute="bottom" constant="8" id="ngJ-Sl-Nf4"/>
                             <constraint firstItem="94f-uA-wtB" firstAttribute="top" secondItem="ENI-ba-bYK" secondAttribute="bottom" constant="15" id="ntd-w9-16q"/>
+                            <constraint firstItem="J5c-yV-CnX" firstAttribute="top" secondItem="JQx-29-Hje" secondAttribute="bottom" constant="16" id="vEb-nm-ZEc"/>
                             <constraint firstItem="94f-uA-wtB" firstAttribute="width" secondItem="ENI-ba-bYK" secondAttribute="width" id="xBC-mk-fUh"/>
+                            <constraint firstItem="J5c-yV-CnX" firstAttribute="centerX" secondItem="JQx-29-Hje" secondAttribute="centerX" id="yX9-TC-xGf"/>
                         </constraints>
                     </view>
                     <connections>
