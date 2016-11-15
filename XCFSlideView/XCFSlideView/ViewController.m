@@ -5,10 +5,13 @@
 //  Created by 程庆春 on 13/11/2016.
 //  Copyright © 2016 qiuncheng.com. All rights reserved.
 //
+//  测试环境： Xcode 8.1 + iPhone 7 Plus Simulator (iOS 10.1) + iOS 10 真机
+//
 
 #import "ViewController.h"
 
 @interface ViewController () <UIScrollViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *testView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *testViewWidthConstraint;
@@ -32,39 +35,46 @@
 
 @implementation ViewController {
 
+    /// 用来记录上次停止滚动时的x偏差
     CGFloat lastContentOffsetX;
+    /// 用来记录当前在那个界面上
     NSInteger index;
 
+    /// 左中右三个UIImageView
     UIImageView *mImageView;
     UIImageView *lImageView;
     UIImageView *rImageView;
 
+    /// 用来记录scrollView的x和y坐标。注意在storyboard里面设置的时候会出现0的情况
     CGFloat originX;
     CGFloat originY;
 }
 
+/// 表示图片的高度和宽度，因为之前在网上下载的缩略图，所以尺寸会比较小。
 static CGFloat const scrollViewHeight = 133;
 static CGFloat const scrollViewWidth = 200;
+
+#pragma mark - 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.imageNames = [NSMutableArray array];
-    [self.imageNames addObject:@"1"];
-    [self.imageNames addObject:@"2"];
-    [self.imageNames addObject:@"3"];
-    [self.imageNames addObject:@"4"];
-    [self.imageNames addObject:@"5"];
-    [self.imageNames addObject:@"6"];
-    [self.imageNames addObject:@"7"];
-    [self.imageNames addObject:@"8"];
-    [self.imageNames addObject:@"9"];
-    [self.imageNames addObject:@"10"];
-    [self.imageNames addObject:@"11"];
+    _scrollView.delegate = self;
+
+    _imageNames = [NSMutableArray array];
+    [_imageNames addObject:@"1"];
+    [_imageNames addObject:@"2"];
+    [_imageNames addObject:@"3"];
+    [_imageNames addObject:@"4"];
+    [_imageNames addObject:@"5"];
+    [_imageNames addObject:@"6"];
+    [_imageNames addObject:@"7"];
+    [_imageNames addObject:@"8"];
+    [_imageNames addObject:@"9"];
+    [_imageNames addObject:@"10"];
+    [_imageNames addObject:@"11"];
 
     _scrollView.contentSize = CGSizeMake(scrollViewWidth * _imageNames.count, 0);
-
-    _scrollView.delegate = self;
 
     for (int i = 0; i < _imageNames.count; i ++) {
         UIImageView *imageView = [[UIImageView alloc]init];
@@ -96,7 +106,8 @@ static CGFloat const scrollViewWidth = 200;
 
 
 }
-#pragma mark - 
+
+#pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 
     CGFloat currentContentOffsetX = scrollView.contentOffset.x - lastContentOffsetX;
@@ -167,6 +178,9 @@ static CGFloat const scrollViewWidth = 200;
         [self.view layoutIfNeeded];
     }];
 }
+
+#pragma mark -
+#pragma mark private
 
 - (void) configViews {
     _leftView = [[UIView alloc]init];
