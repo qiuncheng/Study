@@ -1,0 +1,10 @@
+framework module NoticeBar {
+  umbrella header "NoticeBar.h"
+
+  export *
+  module * { export * }
+}
+
+module NoticeBar.Swift {
+    header "NoticeBar-Swift.h"
+}
