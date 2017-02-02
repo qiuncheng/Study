@@ -58,7 +58,7 @@ static NSString * const urlStr = @"http://gank.io/api/day/2017/01/22";
     });
     
     [[AFHTTPSessionManager manager] GET:urlStr parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        
+        NSLog(@"---%lld", downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [self.activityIndicatorView stopAnimating];
         NSString *str = [NSString stringWithFormat:@"%@", responseObject];

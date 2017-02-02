@@ -20,6 +20,7 @@
 		00F1F5D625988B2C3AFCDCDC /* Pods_AFN_YYCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AFN_YYCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1959C8ABCCF3DACE876EE7F1 /* Pods-AFN-YYCache.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AFN-YYCache.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AFN-YYCache/Pods-AFN-YYCache.debug.xcconfig"; sourceTree = "<group>"; };
 		B4E24E4C94B0DE55A77C3229 /* Pods-AFN-YYCache.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AFN-YYCache.release.xcconfig"; path = "Pods/Target Support Files/Pods-AFN-YYCache/Pods-AFN-YYCache.release.xcconfig"; sourceTree = "<group>"; };
+		F223265E1E35A303007446CC /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F23DC5FF1E349ACC00C694F7 /* AFN-YYCache.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AFN-YYCache.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23DC6031E349ACC00C694F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F23DC6051E349ACC00C694F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,6 +57,7 @@
 		8BF57E4BAAC617DED810C816 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F223265E1E35A303007446CC /* libsqlite3.tbd */,
 				00F1F5D625988B2C3AFCDCDC /* Pods_AFN_YYCache.framework */,
 			);
 			name = Frameworks;
@@ -384,6 +386,7 @@
 				F23DC6181E349ACC00C694F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
