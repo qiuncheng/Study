@@ -17,6 +17,7 @@
 
 @implementation ViewController {
   UIImage *_image;
+  GPUImageFilterGroup *_filterGroup;
 }
 
 - (void)viewDidLoad {
@@ -59,21 +60,100 @@
       [gammaFileter forceProcessingAtSize:_imageView.image.size];
       [gammaFileter useNextFrameForImageCapture];
       [gammaFileter setGamma:2.0];
-      
+
       GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:_image];
       [stillImageSource addTarget:gammaFileter];
-      __weak ViewController *weakSelf = self;
+      __weak ViewController *weakSelf   = self;
       [stillImageSource processImageWithCompletionHandler:^{
         dispatch_async(dispatch_get_main_queue(), ^{
-          UIImage *newImage = [gammaFileter imageFromCurrentFramebuffer];
+      UIImage *newImage                 = [gammaFileter imageFromCurrentFramebuffer];
           [weakSelf.imageView setImage:newImage];
         });
       }];
     }
       break;
-      
+    case 2: {
+      GPUImageSwirlFilter *swirlFilter  = [[GPUImageSwirlFilter alloc] init];
+      [swirlFilter setCenter:CGPointMake(0.5, 0.5)];
+      [swirlFilter setAngle:0.5];
+      [swirlFilter setRadius:0.8];
+      [swirlFilter forceProcessingAtSize:_imageView.image.size];
+      [swirlFilter useNextFrameForImageCapture];
+
+      GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:_image];
+      [stillImageSource addTarget:swirlFilter];
+      __weak ViewController *weakSelf   = self;
+      [stillImageSource processImageWithCompletionHandler:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+      UIImage *newImage                 = [swirlFilter imageFromCurrentFramebuffer];
+          [weakSelf.imageView setImage:newImage];
+        });
+      }];
+    }
+      break;
+    case 3: {
+      GPUImageZoomBlurFilter *zoomBlurFileter = [[GPUImageZoomBlurFilter alloc] init];
+      [zoomBlurFileter setBlurSize:0.8];
+      [zoomBlurFileter setBlurCenter:CGPointMake(0.5, 0.5)];
+      [zoomBlurFileter forceProcessingAtSize:self.imageView.image.size];
+      [zoomBlurFileter useNextFrameForImageCapture];
+
+      GPUImagePicture *stillImageSource       = [[GPUImagePicture alloc] initWithImage:_image];
+      [stillImageSource addTarget:zoomBlurFileter atTextureLocation:1.0];
+      __weak ViewController *weakSelf         = self;
+      [stillImageSource processImageWithCompletionHandler:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+      UIImage *newImage                       = [zoomBlurFileter imageFromCurrentFramebuffer];
+          [weakSelf.imageView setImage:newImage];
+        });
+      }];
+    }
+      break;
+    case 4: {
+      _filterGroup                       = [[GPUImageFilterGroup alloc] init];
+      GPUImagePicture *stillImageSource  = [[GPUImagePicture alloc]initWithImage:_image];
+      [stillImageSource addTarget:_filterGroup];
+
+      GPUImageRGBFilter *filter1         = [[GPUImageRGBFilter alloc] init];
+      GPUImageToonFilter *filter2        = [[GPUImageToonFilter alloc] init];
+      GPUImageSepiaFilter *filter3       = [[GPUImageSepiaFilter alloc] init];
+      GPUImageColorInvertFilter *filter4 = [[GPUImageColorInvertFilter alloc] init];
+      [self addGPUImageFilter:filter1];
+      [self addGPUImageFilter:filter2];
+      [self addGPUImageFilter:filter3];
+      [self addGPUImageFilter:filter4];
+      [_filterGroup forceProcessingAtSize:_imageView.image.size];
+      [_filterGroup useNextFrameForImageCapture];
+      __weak ViewController *weakSelf    = self;
+      [stillImageSource processImageWithCompletionHandler:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+      UIImage *newImage                  = [_filterGroup imageFromCurrentFramebuffer];
+          [weakSelf.imageView setImage:newImage];
+        });
+      }];
+    };
+      break;
     default:
       break;
+  }
+}
+
+- (void)addGPUImageFilter:(GPUImageOutput<GPUImageInput> *)filter {
+  [_filterGroup addFilter:filter];
+  GPUImageOutput<GPUImageInput> *newFilter = filter;
+  NSInteger count                          = _filterGroup.filterCount;
+
+  if (count == 1) {
+    _filterGroup.initialFilters = @[newFilter];
+    _filterGroup.terminalFilter = newFilter;
+  }
+  else {
+    GPUImageOutput<GPUImageInput> *terminaFilter = _filterGroup.terminalFilter;
+    NSArray *initialFilters                      = _filterGroup.initialFilters;
+    [terminaFilter addTarget: newFilter];
+
+    _filterGroup.initialFilters                  = @[initialFilters[0]];
+    _filterGroup.terminalFilter                  = newFilter;
   }
 }
 
@@ -83,11 +163,11 @@
   }
   else { /// change image
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定更换图片？" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    __weak ViewController *weakSelf = self;
+    __weak ViewController *weakSelf    = self;
     [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
       [weakSelf openLibrary];
     }]];
-    
+
     [alertController addAction:[UIAlertAction actionWithTitle:@"清除滤镜效果" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
       [weakSelf.imageView setImage:_image];
     }]];
@@ -110,7 +190,7 @@
   if (longGesture.state == UIGestureRecognizerStateBegan) {
     if (_imageView.image != nil) {
       UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"保存图片到本地？" message:nil preferredStyle:UIAlertControllerStyleAlert];
-      __weak ViewController *weakSelf = self;
+      __weak ViewController *weakSelf    = self;
       [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UIImageWriteToSavedPhotosAlbum(weakSelf.imageView.image, weakSelf, @selector(image:didFinishSavingWithError:contextInfo:), nil);
       }]];
