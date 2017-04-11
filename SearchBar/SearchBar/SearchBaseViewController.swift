@@ -10,14 +10,27 @@ import UIKit
 
 class SearchBaseViewController: UIViewController {
     
+    var filterString: String! {
+        didSet {
+            if filterString == "" || filterString == nil {
+                visibleResults = allCountries
+            }
+            else {
+                let predicate = NSPredicate.init(format: "self contains[c] %@", filterString)
+                visibleResults = (allCountries as NSArray).filtered(using: predicate) as? [String]
+            }
+        }
+    }
     
-
-    @IBOutlet weak var tableView: UITableView!
-    var countries: [String]! {
+    var visibleResults: [String]! {
         didSet {
             tableView.reloadData()
         }
     }
+    
+    var allCountries: [String]!
+
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +39,8 @@ class SearchBaseViewController: UIViewController {
             let url = URL.init(fileURLWithPath: path)
             do {
                 let content = try String.init(contentsOf: url, encoding: String.Encoding.utf8)
-                 let contents = content.components(separatedBy: "\n")
-                self.countries = contents
+                 allCountries = content.components(separatedBy: "\n")
+                self.visibleResults = allCountries
             }
             catch let error {
                 print(error)
@@ -44,12 +57,12 @@ extension SearchBaseViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countries.count
+        return visibleResults.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BaseCellIdentifier")
-        cell?.textLabel?.text = countries[indexPath.row]
+        cell?.textLabel?.text = visibleResults[indexPath.row]
         return cell!
     }
 }

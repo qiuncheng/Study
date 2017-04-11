@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FAF8B1A1E9D3EBF00375E69 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF8B191E9D3EBF00375E69 /* SearchResultViewController.swift */; };
+		3FAF8B1D1E9D3F6D00375E69 /* ShowSearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF8B1C1E9D3F6D00375E69 /* ShowSearchBarViewController.swift */; };
 		3FE624201E9C8ECA00C692BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6241F1E9C8ECA00C692BE /* AppDelegate.swift */; };
 		3FE624221E9C8ECA00C692BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE624211E9C8ECA00C692BE /* ViewController.swift */; };
 		3FE624251E9C8ECA00C692BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FE624231E9C8ECA00C692BE /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3FAF8B191E9D3EBF00375E69 /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		3FAF8B1C1E9D3F6D00375E69 /* ShowSearchBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowSearchBarViewController.swift; sourceTree = "<group>"; };
 		3FE6241C1E9C8ECA00C692BE /* SearchBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE6241F1E9C8ECA00C692BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FE624211E9C8ECA00C692BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FAF8B1B1E9D3F4A00375E69 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				3FAF8B1C1E9D3F6D00375E69 /* ShowSearchBarViewController.swift */,
+			);
+			name = SearchBar;
+			sourceTree = "<group>";
+		};
 		3FE624131E9C8ECA00C692BE = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +113,7 @@
 		3FE6241E1E9C8ECA00C692BE /* SearchBar */ = {
 			isa = PBXGroup;
 			children = (
+				3FAF8B1B1E9D3F4A00375E69 /* SearchBar */,
 				3FE6244E1E9C8EF200C692BE /* Root */,
 				3FE6244D1E9C8EE900C692BE /* Results */,
 				3FE6241F1E9C8ECA00C692BE /* AppDelegate.swift */,
@@ -132,6 +145,7 @@
 		3FE6244D1E9C8EE900C692BE /* Results */ = {
 			isa = PBXGroup;
 			children = (
+				3FAF8B191E9D3EBF00375E69 /* SearchResultViewController.swift */,
 			);
 			name = Results;
 			sourceTree = "<group>";
@@ -292,6 +306,8 @@
 			files = (
 				3FE624501E9C8F1800C692BE /* SearchBaseViewController.swift in Sources */,
 				3FE624221E9C8ECA00C692BE /* ViewController.swift in Sources */,
+				3FAF8B1D1E9D3F6D00375E69 /* ShowSearchBarViewController.swift in Sources */,
+				3FAF8B1A1E9D3EBF00375E69 /* SearchResultViewController.swift in Sources */,
 				3FE624201E9C8ECA00C692BE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,6 +553,7 @@
 				3FE624461E9C8ECA00C692BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3FE624471E9C8ECA00C692BE /* Build configuration list for PBXNativeTarget "SearchBarTests" */ = {
 			isa = XCConfigurationList;
@@ -545,6 +562,7 @@
 				3FE624491E9C8ECA00C692BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3FE6244A1E9C8ECA00C692BE /* Build configuration list for PBXNativeTarget "SearchBarUITests" */ = {
 			isa = XCConfigurationList;
@@ -553,6 +571,7 @@
 				3FE6244C1E9C8ECA00C692BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
