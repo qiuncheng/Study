@@ -15,17 +15,27 @@ class ShowSearchBarViewController: SearchResultViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchController = UISearchController.init(searchResultsController: nil)
+        searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         
         searchController.dimsBackgroundDuringPresentation = false
+        
         searchController.searchBar.sizeToFit()
-        searchController.searchBar.barTintColor = UIColor.init(white: 0.95, alpha: 1.0)
-        searchController.searchBar.tintColor = UIColor.green
-        searchController.definesPresentationContext = true
+//        searchController.definesPresentationContext = true
+        searchController.searchBar.searchBarStyle = .minimal
+        
+        searchController.searchBar.tintColor = UIColor.red
+        UITextField.vs_appearanceWhenContained(in: UISearchBar.self).tintColor = UIColor.black
+        
+        self.definesPresentationContext = true
         
         self.tableView.tableHeaderView = searchController.searchBar
     }
     
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchController.searchBar.resignFirstResponder()
+        let vc = ViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

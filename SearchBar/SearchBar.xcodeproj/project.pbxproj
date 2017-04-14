@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3FAF8B1A1E9D3EBF00375E69 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF8B191E9D3EBF00375E69 /* SearchResultViewController.swift */; };
 		3FAF8B1D1E9D3F6D00375E69 /* ShowSearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF8B1C1E9D3F6D00375E69 /* ShowSearchBarViewController.swift */; };
+		3FE49D961EA1099D001B10FD /* UIView+VS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE49D951EA1099D001B10FD /* UIView+VS.m */; };
 		3FE624201E9C8ECA00C692BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6241F1E9C8ECA00C692BE /* AppDelegate.swift */; };
 		3FE624221E9C8ECA00C692BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE624211E9C8ECA00C692BE /* ViewController.swift */; };
 		3FE624251E9C8ECA00C692BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FE624231E9C8ECA00C692BE /* Main.storyboard */; };
@@ -40,6 +41,9 @@
 /* Begin PBXFileReference section */
 		3FAF8B191E9D3EBF00375E69 /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		3FAF8B1C1E9D3F6D00375E69 /* ShowSearchBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowSearchBarViewController.swift; sourceTree = "<group>"; };
+		3FE49D931EA1099D001B10FD /* SearchBar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SearchBar-Bridging-Header.h"; sourceTree = "<group>"; };
+		3FE49D941EA1099D001B10FD /* UIView+VS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+VS.h"; sourceTree = "<group>"; };
+		3FE49D951EA1099D001B10FD /* UIView+VS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+VS.m"; sourceTree = "<group>"; };
 		3FE6241C1E9C8ECA00C692BE /* SearchBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE6241F1E9C8ECA00C692BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FE624211E9C8ECA00C692BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,9 +121,12 @@
 				3FE6244E1E9C8EF200C692BE /* Root */,
 				3FE6244D1E9C8EE900C692BE /* Results */,
 				3FE6241F1E9C8ECA00C692BE /* AppDelegate.swift */,
+				3FE49D941EA1099D001B10FD /* UIView+VS.h */,
+				3FE49D951EA1099D001B10FD /* UIView+VS.m */,
 				3FE624211E9C8ECA00C692BE /* ViewController.swift */,
 				3FE624231E9C8ECA00C692BE /* Main.storyboard */,
 				3FE624531E9C909800C692BE /* Support files */,
+				3FE49D931EA1099D001B10FD /* SearchBar-Bridging-Header.h */,
 			);
 			path = SearchBar;
 			sourceTree = "<group>";
@@ -237,6 +244,7 @@
 				TargetAttributes = {
 					3FE6241B1E9C8ECA00C692BE = {
 						CreatedOnToolsVersion = 8.3.1;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					3FE6242F1E9C8ECA00C692BE = {
@@ -305,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FE624501E9C8F1800C692BE /* SearchBaseViewController.swift in Sources */,
+				3FE49D961EA1099D001B10FD /* UIView+VS.m in Sources */,
 				3FE624221E9C8ECA00C692BE /* ViewController.swift in Sources */,
 				3FAF8B1D1E9D3F6D00375E69 /* ShowSearchBarViewController.swift in Sources */,
 				3FAF8B1A1E9D3EBF00375E69 /* SearchResultViewController.swift in Sources */,
@@ -460,10 +469,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SearchBar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vsccw.SearchBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SearchBar/SearchBar-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -472,10 +485,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SearchBar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vsccw.SearchBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SearchBar/SearchBar-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
